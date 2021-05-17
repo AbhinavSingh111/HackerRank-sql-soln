@@ -1,0 +1,3 @@
+select * from (select distinct city , length(city) from station order by length(city) ASC , city ASC  Limit 1)As ta 
+union
+select * from (select distinct city, length(city) from station order by length(city) DESC , city ASC Limit 1) As tb  ;
