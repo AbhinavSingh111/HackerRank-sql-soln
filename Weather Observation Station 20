@@ -1,0 +1,5 @@
+set @rowindex:=-1;
+select round(avg(n.lat_n),4) 
+from 
+(select @rowindex:=@rowindex+1 as rowindex , lat_n as lat_n from station order by lat_n) as n 
+where n.rowindex in(ceil(@rowindex/2),floor(@rowindex/2))
