@@ -1,0 +1,24 @@
+/* oracle l/sql solution */
+
+
+set SERVEROUTPUT ON;
+declare
+counter number;
+prime clob;
+L NUMBER;
+begin
+for k IN 2..1000 loop
+ counter:=0;
+ l:=floor(k/2);
+ for o in 2..l loop
+ if(mod(k,o)=0)then
+ counter:=1;
+ end if ;
+ end loop;
+if(counter=0) then
+prime :=prime|| k || '&' ; 
+end if;
+end loop;
+dbms_output.put_line(SUBSTR(prime,1,LENGTH(prime)-1));
+end;
+/
